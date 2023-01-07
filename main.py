@@ -14,24 +14,24 @@ pass_char = input('Do you also want special charachters? Type yes or no: ')
 
 #print(random.choice(letter_numbers))
 
+
+#loop function
+def getPassword(number,string,newstring):
+    while len(newstring) < number:
+            random_char = random.choice(string)
+            newstring += random_char
+    return newstring
+
 if pass_length == 'long':
     if pass_char == 'yes':
-        while len(random_password) < 12:
-            random_char = random.choice(all_char)
-            random_password += random_char
+        random_password = getPassword(12,all_char,random_password)
     else:
-         while len(random_password) < 12:
-            random_char = random.choice(letter_numbers)
-            random_password += random_char
+        random_password = getPassword(12,letter_numbers,random_password)
 else:
     if pass_char == 'yes':
-        while len(random_password) < 8:
-            random_char = random.choice(all_char)
-            random_password += random_char
+       random_password = getPassword(8,all_char,random_password)
     else:
-         while len(random_password) < 8:
-            random_char = random.choice(letter_numbers)
-            random_password += random_char
+        random_password = getPassword(8,letter_numbers,random_password)
 
 
 
